@@ -28,3 +28,4 @@ hs_err_pid*
 /target/maven-status/
 /target/surefire-reports/
 /target/test-classes/
+/target/generated-test-sources/
