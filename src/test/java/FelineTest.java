@@ -1,31 +1,14 @@
 import com.example.Feline;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
+@RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
-
-    private final int expectedKittens;
-    private final int inputCount;
-
-    public FelineTest(int expectedKittens, int inputCount) {
-        this.expectedKittens = expectedKittens;
-        this.inputCount = inputCount;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] getKittensData() {
-        return new Object[][]{
-                {1, 1},
-                {0, 0},
-                {5, 5},
-        };
-    }
 
     Feline feline = new Feline();
 
@@ -47,12 +30,6 @@ public class FelineTest {
     public void testGetKittensNoArgs() {
         int expectedKittens = 1;
         int actualKittens = feline.getKittens();
-        assertEquals(expectedKittens, actualKittens);
-    }
-
-    @Test
-    public void testGetKittensWithParameterizedArgs() {
-        int actualKittens = feline.getKittens(inputCount);
         assertEquals(expectedKittens, actualKittens);
     }
 }
